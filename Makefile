@@ -6,7 +6,7 @@
 #    By: tima <tima@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/06/19 23:37:45 by tima             ###   ########.fr        #
+#    Updated: 2020/06/19 23:44:17 by tima             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ PK = \033[035m
 CN = \033[036m
 EOC = \033[0m
 
-all: $(LIBFT) $(NAME)
+all: $(LIB) $(NAME)
 	@printf "\n$(GR) >> $(NAME) created! <<$(EOC)\n"
 
 $(NAME): $(TMP)
@@ -70,7 +70,7 @@ $(NAME): $(TMP)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "$(CN).$(EOC)"
 
-$(LIBFT):
+$(LIB):
 	@make -C $(LIB_DIR)
 
 clean:
