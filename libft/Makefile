@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tima <tima@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/07 15:43:25 by fallard           #+#    #+#              #
-#    Updated: 2020/06/19 23:17:14 by tima             ###   ########.fr        #
+#    Updated: 2020/11/13 17:55:46 by fallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-INC_NAME = libft.h
+HEAD_NAME = libft.h
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -29,6 +29,7 @@ ft_isdigit.c \
 ft_isprint.c \
 ft_itoa.c \
 ft_memalloc.c \
+ft_calloc.c \
 ft_memccpy.c \
 ft_memchr.c \
 ft_memcmp.c \
@@ -82,9 +83,12 @@ ft_lstdel.c \
 ft_lstadd.c \
 ft_lstiter.c \
 ft_lstmap.c \
-get_next_line.c
+get_next_line.c \
+ft_splitdel.c \
+ft_itoa_base.c \
+ft_sort.c
 
-HEADER = $(addprefix $(INC_DIR), $(INC_NAME))
+HEADER = $(addprefix $(INC_DIR), $(HEAD_NAME))
 TMP = $(addprefix $(SRC_DIR), $(SRC:.c=.o))
 
 INCLUDES = -I $(INC_DIR)
@@ -98,21 +102,21 @@ CN = \033[036m
 EOC = \033[0m
 
 all: $(NAME)
-	@printf "\n$(GR) >> $(NAME) created! <<$(EOC)\n"
-
-$(NAME): $(TMP)
-	@ar rc $(NAME) $(TMP)
 	
+$(NAME): $(TMP) $(HEADER)
+	@ar rc $(NAME) $(TMP)
+	@printf "\n$(GR)>> Libft created <<$(EOC)\n"
+
 %.o:%.c $(HEADER)
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	@printf "$(CN).$(EOC)"
 
 clean:
 	@rm -f $(TMP)
-	@printf "$(YW)Libft: $(RD)Object files deleted!$(EOC)\n"
+	@printf "$(YW)Libft: $(RD)Object files deleted.$(EOC)\n"
 
 fclean: clean
 	@rm -f $(NAME)
-	@printf "$(YW)Libft: $(RD)$(NAME) and object files deleted!$(EOC)\n"
+	@printf "$(YW)Libft: $(RD)$(NAME) deleted.$(EOC)\n"
 
 re: fclean all

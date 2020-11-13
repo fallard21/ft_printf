@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fallard <fallard@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: tima <tima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 16:35:41 by fallard           #+#    #+#             */
-/*   Updated: 2020/11/13 16:30:38 by fallard          ###   ########.fr       */
+/*   Created: 2020/06/22 18:02:31 by tima              #+#    #+#             */
+/*   Updated: 2020/06/22 18:03:17 by tima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_private.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...)
+void	*ft_calloc(size_t num, size_t size)
 {
-	t_printf	pf;
+	void	*mem;
 
-	ft_memset(&pf, 0, sizeof(t_printf));
-	pf.format = (char*)format;
-	va_start(pf.args, format);
-	parse_format(&pf);
-	va_end(pf.args);
-	return (pf.len);
+	mem = malloc(num * size);
+	if (!mem)
+		return (NULL);
+	ft_memset(mem, 0, num * size);
+	return (mem);
 }
