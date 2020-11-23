@@ -35,7 +35,7 @@ Reproducing `printf` function of the standart library (included from `<stdio.h>`
 
 int main()
 {
-	ft_printf("%s %d %.20f\n", "Hello World", 21, 0.095);
+	ft_printf("%s %d %.20f\n", "Hello World", 21, 0.093);
 	return (0);
 }
 ```
@@ -44,3 +44,4 @@ int main()
 gcc main.c -o program -L . -I includes
 ```
 4. Launch `./program`
+`Hello World 21 0.09299999999999999933`
