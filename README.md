@@ -40,7 +40,7 @@ int main()
 }
 ```
 3.   Compile `main.c` following flags:
-```bash
+```C
 gcc main.c -o program -L . -I includes
 ```
 4. Launch `./program`
