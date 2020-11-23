@@ -24,7 +24,7 @@ Reproducing `printf` function of the standart library (included from `<stdio.h>`
 * `%f` calculated with `bignum arithmetic`, accurate output `LDBL_MIN`, `LDBL_MAX` (macros from `<float.h>`)
 
 ## How to download ?
-	https://github.com/fallard21/ft_printf.git ~/ft_printf
+	git clone https://github.com/fallard21/ft_printf.git ~/ft_printf
 	cd ~/ft_printf
 	
 ## How to use ?
